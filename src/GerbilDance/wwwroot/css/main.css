@@ -1,2 +1,20 @@
 ﻿body {
 }
+
+/*Magic Colors*/
+
+.team-blue {
+    background: blue;
+}
+
+.team-black {
+    background: black;
+}
+
+.team-silver {
+    background: silver;
+}
+
+.team-white {
+    background: white;
+}
