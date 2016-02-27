@@ -12,17 +12,8 @@ $(document).ready(function () {
         }
     }
 
-    //Enter the code to see the button
-    $("#code").on('input', CheckCode);
-
-    function CheckCode() {
-        if ($("#code").val() == "team") {
-            $("#enterCode").show();
-        }
-    }
-
-    //Hit the button to enter the game
-    $("#enterCode").click(GetGame);
+    //Initialize game
+    GetGame();
 
     function GetGame() {
 
@@ -44,11 +35,8 @@ $(document).ready(function () {
     }
 
     function InitializeGame(gameId) {
-
         $("#game").show();
         $("#" + gameId).show();
-        $("#register").hide();
-
     }
 
     function InitializeTeam(data) {
@@ -57,14 +45,4 @@ $(document).ready(function () {
         var teamName = gameType.teams[teamName];
         $("body").addClass("team-" + teamName);
     }
-});
-
-//Hide stuff initially
-$(function () {
-    $("#game").hide();
-    $("#hockey").hide();
-    $("#basketball").hide();
-    $("#leaderboard").hide();
-    $("#loading").hide();
-    $("#enterCode").hide();
 });

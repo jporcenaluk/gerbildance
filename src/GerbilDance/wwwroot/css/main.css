@@ -18,3 +18,9 @@
 .team-white {
     background: white;
 }
+
+/* Initial visualization */
+
+#game, #leaderboard, #hockey, #basketball {
+    display: none;
+}
