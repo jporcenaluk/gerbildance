@@ -73,6 +73,7 @@ app.controller('GameController', function($http, $interval) {
       if (self.progress >= self.duration) {
         self.inProgress = false;
         self.gameOver = true;
+        window.location = 'leaderboard.html';
       }
     }, 1000);
 
