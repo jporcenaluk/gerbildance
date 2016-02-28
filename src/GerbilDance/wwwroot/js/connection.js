@@ -2,15 +2,18 @@
 
 $(document).ready(function () {
 
+  var api = 'http://localhost:5477/';
+  // prod
+  // var api = 'https://blooming-tundra-52992.herokuapp.com/';
+
   const games = {
     basketball: {
       teams: { 1: "blue", 2: "silver", 3: "white", 4: "black" },
-
     },
     hockey: {
       teams: { 1: "blue", 2: "silver", 3: "white", 4: "black" }
     }
-  }
+  };
 
   //Initialize game
   GetGame();
@@ -21,7 +24,7 @@ $(document).ready(function () {
     ///If no leaderboard, play game
     $.ajax({
       type: "POST",
-      url: "http://private-143c2-dribbledance.apiary-mock.com/register",
+      url: api + "register",
       dataType: "json",
       success: function (data) {
         InitializeGame(data.game_type);
@@ -29,7 +32,7 @@ $(document).ready(function () {
         $("#loading").hide();
       },
       error: function (data) {
-        alert("failed: " + data);
+        $("#error").show();
       }
     });
   }
@@ -45,6 +48,8 @@ $(document).ready(function () {
     var teamName = gameType.teams[teamName];
     $("body").addClass("team-" + teamName);
   }
+
+  $("#error").hide();
 
   $(".see-leaderboard").click(function () {
     $("#game").hide();
