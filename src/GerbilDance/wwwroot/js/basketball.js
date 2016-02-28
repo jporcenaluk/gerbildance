@@ -1,23 +1,25 @@
 ﻿$(function () {
-    //Get all the touchable items
-    var items = $(".touch-circle");
 
-    items.each(function (item, i) {
+  var items = $(".touch-circle");
 
-        $(this).click(function () {
+  var points = 0;
 
-            items.removeClass('active');
+  items.each(function (item, i) {
 
-            // pick a new one
-            var index = i;
+    $(this).click(function () {
 
-            do {
-                index = Math.floor(Math.random() * items.length);
-            }
-            while (index == i);
+      items.removeClass('active');
 
-            $(items[index]).addClass("active");
-        })
+      var index = i;
+
+      do {
+        index = Math.floor(Math.random() * items.length);
+      } while (index == i);
+      
+      $(items[index]).addClass("active");
     })
+
+  });
+
 
 });

@@ -1,0 +1,23 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "A small frontend game project for the Amway hack-a-thon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jporcenaluk/gerbildance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jporcenaluk/gerbildance/issues"
+  },
+  "homepage": "https://github.com/jporcenaluk/gerbildance#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
