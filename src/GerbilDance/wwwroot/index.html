@@ -96,9 +96,17 @@
       <div class="ui-time">0:{{game.countDown}}</div>
     </footer>
   </div>
-  <div class="error" ng-if="game.gameEnded">
-    The game has ended!
-  </div>
+    <section class="error" ng-if="game.gameEnded">
+
+        <div class="ui-content content">
+            <h1 class="ui-heading">
+                Game Has Ended!
+            </h1>
+        </div>
+
+
+    </section>
+
 
 </div> <!-- /app -->
 
