@@ -45,4 +45,9 @@ $(document).ready(function () {
         var teamName = gameType.teams[teamName];
         $("body").addClass("team-" + teamName);
     }
+
+    $(".see-leaderboard").click(function () {
+        $("#game").hide();
+        $("#leaderboard").show();
+    });
 });
