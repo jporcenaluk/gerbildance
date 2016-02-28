@@ -1,4 +1,4 @@
-﻿        @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+﻿@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
 
 
 /*GLOBAL STYLES*/
@@ -81,11 +81,33 @@ h1, h2, h3, h4, h5, h6 {
 /* PROGRESS STYLES */
 
 .team-points:after {
-  content: " PTS";
+    content: " PTS";
 }
 
 .progress-bar {
-  height: 20px;
-  background: #cce3f1;
-  transition: width 2s;
+    height: 20px;
+    background: #cce3f1;
+    transition: width 2s;
+}
+
+.game-meta-info {
+    margin: 50px 0;
+    background: white;
+    color: #0474BC;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 1.5em;
+    overflow: auto;
+}
+
+.fake-url {
+    border-bottom: 1px solid #0474BC;
+}
+
+.go-to {
+    float: left;
+}
+
+.time-left {
+    float: right;
 }

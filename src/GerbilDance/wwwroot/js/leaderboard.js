@@ -3,6 +3,9 @@
     var api = "https://blooming-tundra-52992.herokuapp.com/leaderboard";
     DoLeaderboardPoll();
 
+    var startIn = null;
+    var countDown = null;
+
     function DoLeaderboardPoll() {
         $.ajax({
             url: api,
@@ -19,6 +22,30 @@
                 //    "4": number4
                 //};
 
+                //if (startIn === null) {
+                //    startIn = data.start_in;
+                //    countDown = data.duration;
+                 
+                //    setInterval(function() {
+
+                //        countDown--;
+
+
+                //        if (countDown <= 0) {
+                //            //Make page say game over in white box
+                //            $(".time-left").html("Game Over");
+                //        }
+                //        else {
+                //            //Update timer with progress
+                //            var html = "0:" + ((countDown < 10) ? "0" + countDown : countDown);
+
+                //            $(".time-left").html(html);
+                //        }
+
+                //    }, 1000);
+                //}
+               
+                data = data.leaderboard;
                 var dataArray = [data["1"], data["2"], data["3"], data["4"]];
 
                 var max = Math.max.apply(Math, dataArray);
@@ -36,5 +63,6 @@
             }
         });
     }
+
 
 });
