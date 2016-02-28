@@ -1,6 +1,9 @@
-﻿@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
-
-#game {
+﻿
+.ui-ball.active {
+  background-color: black;
+}
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+#app {
   display: block;
   height: 100%;
   width: 100%;
@@ -122,39 +125,35 @@
 }
 
 .ui-ball {
-  height: 4rem;
-  width: 4rem;
+  height: 15vw;
+  width: 15vw;
   border-radius: 50%;
   background: #FFF;
   position: absolute;
-  top: calc(50% - 2rem);
-  left: calc(50% - 2rem);
-  -webkit-transform-origin: -80px center;
-          transform-origin: -80px center;
+  top: calc(50% - 7.5vw);
+  left: calc(50% - 7.5vw);
+  -webkit-transform-origin: -10vw center;
+          transform-origin: -10vw center;
 }
-.ui-ball.active {
-  background-color: black;
-}
-
 .ui-ball:nth-child(1) {
-  -webkit-transform: translateX(80px) rotate(82deg);
-          transform: translateX(80px) rotate(82deg);
+  -webkit-transform: translateX(15vw) rotate(82deg);
+          transform: translateX(15vw) rotate(82deg);
 }
 .ui-ball:nth-child(2) {
-  -webkit-transform: translateX(80px) rotate(154deg);
-          transform: translateX(80px) rotate(154deg);
+  -webkit-transform: translateX(15vw) rotate(154deg);
+          transform: translateX(15vw) rotate(154deg);
 }
 .ui-ball:nth-child(3) {
-  -webkit-transform: translateX(80px) rotate(226deg);
-          transform: translateX(80px) rotate(226deg);
+  -webkit-transform: translateX(15vw) rotate(226deg);
+          transform: translateX(15vw) rotate(226deg);
 }
 .ui-ball:nth-child(4) {
-  -webkit-transform: translateX(80px) rotate(298deg);
-          transform: translateX(80px) rotate(298deg);
+  -webkit-transform: translateX(15vw) rotate(298deg);
+          transform: translateX(15vw) rotate(298deg);
 }
 .ui-ball:nth-child(5) {
-  -webkit-transform: translateX(80px) rotate(370deg);
-          transform: translateX(80px) rotate(370deg);
+  -webkit-transform: translateX(15vw) rotate(370deg);
+          transform: translateX(15vw) rotate(370deg);
 }
 
 .ui-time {
@@ -282,6 +281,7 @@
 }
 
 html, body {
+  font-size: 16px;
   font-family: Oswald, sans-serif;
   width: 100%;
   height: 100%;
@@ -293,4 +293,3 @@ html, body {
   box-sizing: border-box;
   position: relative;
 }
-

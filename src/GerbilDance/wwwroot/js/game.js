@@ -1,7 +1,7 @@
 ﻿
 window.api = 'http://localhost:5477/';
 // prod
-// var api = 'https://blooming-tundra-52992.herokuapp.com/';
+// window.api = 'https://blooming-tundra-52992.herokuapp.com/';
 window.team = null;
 
 var app = angular.module('app', []);
@@ -10,6 +10,7 @@ app.controller('GameController', function($http, $interval) {
 
   var self = this;
 
+  self.gameOver = false;
   self.countDown = 0;
   self.progress = 0;
   self.duration = 0;
@@ -53,8 +54,9 @@ app.controller('GameController', function($http, $interval) {
     self.gameType = response.data.game_type;
     self.teamName = games[self.gameType].teams[window.team];
     self.gameName = games[self.gameType].name;
-    self.countDown = response.data.duration;
     self.duration = response.data.duration;
+    self.progress = response.data.progress;
+    self.countDown = response.data.duration - self.progress;
 
     if (response.data.start_in >= 0) {
       self.startIn = +response.data.start_in;
@@ -69,10 +71,10 @@ app.controller('GameController', function($http, $interval) {
       }
 
       if (self.progress >= self.duration) {
-        self.inProgress = true;
-        self.viewLeaderboard = true;
+        self.inProgress = false;
+        self.gameOver = true;
       }
-    }, 1000)
+    }, 1000);
 
     console.log(response)
   })
@@ -84,10 +86,6 @@ app.controller('GameController', function($http, $interval) {
         self.gameEnded = true;
       break;
     }
-
   })
 
-
-
 })
-
