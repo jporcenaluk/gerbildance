@@ -1,0 +1,9 @@
+{
+  "firebase": "breakaway",
+  "public": "src/GerbilDance/wwwroot",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

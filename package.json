@@ -19,5 +19,8 @@
   "homepage": "https://github.com/jporcenaluk/gerbildance#readme",
   "dependencies": {
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "node-sass": "^3.4.2"
   }
 }
