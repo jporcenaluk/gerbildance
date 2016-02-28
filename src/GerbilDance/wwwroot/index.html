@@ -12,7 +12,7 @@
   <script src="js/breakaway.js"></script>
 </head>
 <body>
-<div ng-controller="GameController as game" id="game">
+<div ng-controller="GameController as game" id="app">
 
   <div class="route" id="intro"></div>
 
@@ -41,7 +41,12 @@
     </div>
   </section>
 
-  <section class="ui-page -game" id="breakaway" ng-if="game.inProgress > 0 && game.gameType == 'breakaway'" ng-controller="BreakAwayController as ba">
+  <section 
+    class="ui-page -game" 
+    id="breakaway" 
+    ng-if="game.inProgress > 0 && game.gameType == 'breakaway'" 
+    ng-controller="BreakAwayController as ba"
+  >
     <!-- Break Away -->
     <header class="ui-header">
       <h1 class="ui-heading">
@@ -59,6 +64,14 @@
     <footer class="ui-footer">
       <div class="ui-time">Points: {{ba.points}}</div>
     </footer>
+  </section>
+
+  <section id="game-over" ng-if="game.gameOver">
+    <div class="ui-content">
+      <h1 class="ui-heading">
+        <span>Game Over!</span>
+      </h1>
+    </div>
   </section>
 
   <div class="game" id="solarsprint" ng-if="game.inProgress > 0 && game.gameType == 'solarsprint'" ng-controller="SolarSprintController as s">
@@ -85,9 +98,6 @@
   </div>
   <div class="error" ng-if="game.gameEnded">
     The game has ended!
-  </div>
-  <div id="leaderboard" ng-if="game.showLeaderboard">
-    Leaderboard
   </div>
 
 </div> <!-- /app -->
