@@ -7,17 +7,17 @@
         $.ajax({
             url: api,
             success: function (data) {
-                //This will be replaced in production
-                var number1 = parseInt(Math.random() * 1000);
-                var number2 = parseInt(Math.random() * 1000);
-                var number3 = parseInt(Math.random() * 1000);
-                var number4 = parseInt(Math.random() * 1000);
-                var data = {
-                    "1": number1,
-                    "2": number2,
-                    "3": number3,
-                    "4": number4
-                };
+                ////This will be replaced in production
+                //var number1 = parseInt(Math.random() * 1000);
+                //var number2 = parseInt(Math.random() * 1000);
+                //var number3 = parseInt(Math.random() * 1000);
+                //var number4 = parseInt(Math.random() * 1000);
+                //var data = {
+                //    "1": number1,
+                //    "2": number2,
+                //    "3": number3,
+                //    "4": number4
+                //};
 
                 var dataArray = [data["1"], data["2"], data["3"], data["4"]];
 
