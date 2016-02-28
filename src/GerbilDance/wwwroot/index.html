@@ -1,52 +1,70 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-    <!--<![endif]-->
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/solarsprint.js"></script>
+  <script src="js/breakaway.js"></script>
 </head>
 <body>
-    <div id="loading">
-        Loading...
-    </div>
-    <div id="game">
-        <div id="hockey">
-            Hockeyball
-            <div id="hockey-container">
-                <div class="touch-circle active"></div>
-                <div class="touch-circle"></div>
-                <div class="touch-circle"></div>
-                <div class="touch-circle"></div>
-                <div class="touch-circle"></div>
-            </div>
-   
+<div ng-controller="GameController as game" id="game">
 
-            <button class="see-leaderboard">See Leaderboard</button>
-        </div>
-        <div id="basketball">
-            Basketball
-            <button class="see-leaderboard">See Leaderboard</button>
-        </div>
-    </div>
-    <div id="error">
-        Error
-    </div>
-    <div id="leaderboard">
-        Leaderboard
-    </div>
+  <div class="route" id="intro"></div>
 
-    <script src="js/jquery-2.2.1.min.js"></script>
-    <script src="js/connection.js"></script>
-    <script src="js/hockey.js"></script>
-    <script src="js/basketball.js"></script>
+  <div id="loading" ng-if="game.loading">
+    Loading...
+  </div>
+
+  <section id="welcome" ng-if="!game.loading && !game.inProgress && !game.error">
+    <div class="ui-content">
+      <h1 class="ui-heading">
+        <span>{{game.gameName}}</span>
+      </h1>
+
+      <h2 class="ui-heading">
+        <span>Welcome</span>
+        <span>to</span> 
+        <span>{{game.teamName}}</span>
+        <span>team</span>
+      </h2>
+
+      <h3 class="ui-heading" id="starting-in">
+        <span>Starting</span>
+        <span>in</span> 
+        <span id="starting-in-value">{{game.startIn}}</span>
+      </h3>
+    </div>
+  </section>
+
+  <div class="game" id="breakaway" ng-if="game.inProgress > 0 && game.gameType == 'breakaway'" ng-controller="BreakAwayController as ba">
+    <!-- Break Away -->
+    <h1 class="ui-heading">
+      <span>Tap</span>
+      <span>The</span> 
+      <span>Dark</span>
+      <span>Balls</span>
+    </h1>
+    <div class="container">
+      <div 
+        class="ball" 
+        ng-repeat="ball in ba.balls" 
+        ng-class="{active: ball.active}"
+        ng-click="ba.handleClick($index, ball)"
+      ></div>
+    </div>
+  </div>
+
+  <div class="error" ng-if="game.gameEnded">
+    The game has ended!
+  </div>
+  <div id="leaderboard" ng-if="game.showLeaderboard">
+    Leaderboard
+  </div>
+
+</div> <!-- /app -->
+
 </body>
 </html>
