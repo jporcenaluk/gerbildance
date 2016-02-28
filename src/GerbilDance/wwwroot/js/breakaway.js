@@ -6,9 +6,12 @@ app.controller('BreakAwayController', function($http, $interval) {
   self.balls = [{},{},{},{}, {}];
   self.balls[1].active = true;
 
-  self.points = 0;
+  self.cumulativePoints = 0;
+  self.temporaryPoints = 0;
 
   var pushPoints = function() {
+
+    console.log('pushing: ' + self.temporaryPoints);
     $http({
       method: 'POST',
       url: api + 'points',
@@ -17,24 +20,27 @@ app.controller('BreakAwayController', function($http, $interval) {
       },
       data : {
         team: team,
-        points: self.points
+        points: self.temporaryPoints
       }
     }).then(
       function(res) {} ,
       function(err) {}
     );
+
+    self.temporaryPoints = 0;
   };
 
   $interval(function() {
 
     pushPoints();
-  }, 10000)
+  }, 3000)
 
 
   self.handleClick = function($i, ball) {
     if (ball.active) {
         delete ball.active;
-        self.points++;
+        self.temporaryPoints++;
+        self.cumulativePoints++;
         var newIndex = $i;
 
         do {
