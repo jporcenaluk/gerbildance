@@ -2,9 +2,9 @@
 
 $(document).ready(function () {
 
-  var api = 'http://localhost:5477/';
+  //var api = 'http://localhost:5477/';
   // prod
-  // var api = 'https://blooming-tundra-52992.herokuapp.com/';
+   var api = 'https://blooming-tundra-52992.herokuapp.com/';
 
   const games = {
     basketball: {
