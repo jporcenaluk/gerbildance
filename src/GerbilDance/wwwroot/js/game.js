@@ -1,7 +1,7 @@
 ﻿
 window.api = 'http://localhost:5477/';
 // prod
-window.api = 'https://blooming-tundra-52992.herokuapp.com/';
+// window.api = 'https://blooming-tundra-52992.herokuapp.com/';
 window.team = null;
 
 var app = angular.module('app', []);
