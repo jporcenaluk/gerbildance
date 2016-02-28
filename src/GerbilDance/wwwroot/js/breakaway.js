@@ -1,25 +1,25 @@
-﻿// $(function () {
+﻿
+app.controller('BreakAwayController', function($http, $interval) {
 
-//   var items = $(".touch-circle");
+  self = this;
 
-//   var points = 0;
+  self.balls = [{},{},{},{}];
+  self.balls[1].active = true;
 
-//   items.each(function (item, i) {
+  var points = 0;
 
-//     $(this).click(function () {
+  self.handleClick = function($i, ball) {
+    if (ball.active) {
+        delete ball.active;
 
-//       items.removeClass('active');
+        var newIndex = $i;
 
-//       var index = i;
+        do {
+            newIndex = Math.floor(Math.random() * self.balls.length);
+        } while (newIndex == $i);
 
-//       do {
-//         index = Math.floor(Math.random() * items.length);
-//       } while (index == i);
-      
-//       $(items[index]).addClass("active");
-//     })
+        self.balls[newIndex].active = true;
+    }
+  }
 
-//   });
-
-
-// });
+})

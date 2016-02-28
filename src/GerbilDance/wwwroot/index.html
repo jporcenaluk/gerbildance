@@ -18,46 +18,42 @@
     Loading...
   </div>
 
-  <section id="welcome" ng-if="!game.loading && !game.error">
+  <section id="welcome" ng-if="!game.loading && !game.inProgress && !game.error">
     <div class="ui-content">
-      <h1 class="ui-heading team">
+      <h1 class="ui-heading">
+        <span>{{game.gameName}}</span>
+      </h1>
+
+      <h2 class="ui-heading">
         <span>Welcome</span>
         <span>to</span> 
         <span>{{game.teamName}}</span>
         <span>team</span>
-      </h1>
+      </h2>
 
-      <h1 class="ui-heading" id="starting-in">
+      <h3 class="ui-heading" id="starting-in">
         <span>Starting</span>
         <span>in</span> 
-        <span id="starting-in-value">{{game.startingIn}}</span>
-      </h1>
+        <span id="starting-in-value">{{game.startIn}}</span>
+      </h3>
     </div>
-
   </section>
 
-  <!-- 
-    <section class="ui-page -intro">
-    <div class="ui-content">
-      <h1 class="ui-heading">
-      <span>You</span> <span>in</span> <span>the</span> <span>game?</span>
-      </h1>
-      <input type="text" class="ui-input" placeholder="Enter code to join"/>
-    </div>
-    <div class="ui-content">
-      <button type="button" class="ui-button">Bring it on</button>
-    </div>
-    </section>
-   -->
-
-  <div class="game" id="breakaway" ng-if="game.playing && game.gameType == 'breakaway'">
-    Break Away
+  <div class="game" id="breakaway" ng-if="game.inProgress > 0 && game.gameType == 'breakaway'" ng-controller="BreakAwayController as ba">
+    <!-- Break Away -->
+    <h1 class="ui-heading">
+      <span>Tap</span>
+      <span>The</span> 
+      <span>Dark</span>
+      <span>Balls</span>
+    </h1>
     <div class="container">
-      <div class="touch-circle active"></div>
-      <div class="touch-circle"></div>
-      <div class="touch-circle"></div>
-      <div class="touch-circle"></div>
-      <div class="touch-circle"></div>
+      <div 
+        class="ball" 
+        ng-repeat="ball in ba.balls" 
+        ng-class="{active: ball.active}"
+        ng-click="ba.handleClick($index, ball)"
+      ></div>
     </div>
   </div>
 
