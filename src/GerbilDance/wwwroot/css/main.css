@@ -1,8 +1,4 @@
 ﻿
-.ui-ball.active {
-    background-color: black;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
 
 #app {
@@ -135,15 +131,22 @@
 }
 
 .ui-ball {
+    z-index: 999;
     height: 15vw;
     width: 15vw;
     border-radius: 50%;
-    background: #FFF;
     position: absolute;
     top: calc(50% - 7.5vw);
     left: calc(50% - 7.5vw);
     -webkit-transform-origin: -10vw center;
     transform-origin: -10vw center;
+}
+
+.ui-ball path {
+    fill: white;
+}
+.ui-ball.active path{
+    fill: black;
 }
 
     .ui-ball:nth-child(1) {
