@@ -63,7 +63,10 @@
     </div>
     <footer class="ui-footer">
       <div class="ui-time">Points: {{ba.cumulativePoints}}</div>
+
+        <div class="ui-time">0:{{game.countDown}}</div>
     </footer>
+   
   </section>
 
   <section id="game-over" ng-if="game.gameOver">
@@ -91,11 +94,7 @@
     </div>
   </div>
 
-  <div class="count-down" ng-if="game.inProgress">
-    <footer class="ui-footer">
-      <div class="ui-time">0:{{game.countDown}}</div>
-    </footer>
-  </div>
+  
     <section class="error" ng-if="game.gameEnded">
 
         <div class="ui-content content">
