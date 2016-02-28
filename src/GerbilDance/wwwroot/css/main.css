@@ -24,3 +24,14 @@
 #game, #leaderboard, #hockey, #basketball {
     display: none;
 }
+
+.touch-circle {
+    background: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.touch-circle.active {
+    background: orange;
+}
