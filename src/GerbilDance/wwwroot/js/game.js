@@ -1,8 +1,8 @@
 ﻿
-api = 'http://localhost:5477/';
+window.api = 'http://localhost:5477/';
 // prod
 // var api = 'https://blooming-tundra-52992.herokuapp.com/';
-team = null;
+window.team = null;
 
 var app = angular.module('app', []);
 
@@ -48,11 +48,10 @@ app.controller('GameController', function($http, $interval) {
     // }};
 
     // set the global team var
-    team = teamIndex;
     self.loading = false;
-    var teamIndex = response.data.team;
+    window.team = response.data.team;
     self.gameType = response.data.game_type;
-    self.teamName = games[self.gameType].teams[teamIndex];
+    self.teamName = games[self.gameType].teams[window.team];
     self.gameName = games[self.gameType].name;
     self.countDown = response.data.duration;
     self.duration = response.data.duration;
